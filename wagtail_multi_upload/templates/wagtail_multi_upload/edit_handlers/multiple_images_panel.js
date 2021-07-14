@@ -209,11 +209,27 @@ function InlinePanel(opts) {
         if (opts.maxForms) {
             var forms = $('> li', self.formsUl).not('.deleted');
             var addButton = $('#' + opts.formsetPrefix + '-ADD');
+            var inputButton = $('#' + opts.formsetPrefix.slice(3, opts.formsetPrefix.length) + '-fileupload')
+            var fileButton = $('#file_button')
+            var inputBox = $('.replace-file-input')
+            var dropZone = $('.drop-zone')
 
             if (forms.length >= opts.maxForms) {
                 addButton.addClass('disabled');
+                fileButton.addClass('disabled');
+                fileButton.prop('disabled', true);
+                inputButton.addClass('disabled');
+                inputButton.prop('disabled', true);
+                inputBox.addClass('disabled')
+                dropZone.addClass('no-zone')
             } else {
                 addButton.removeClass('disabled');
+                fileButton.removeClass('disabled');
+                fileButton.prop('disabled', false);
+                inputButton.removeClass('disabled');
+                inputButton.prop('disabled', false);
+                inputBox.removeClass('disabled')
+                dropZone.removeClass('no-zone')
             }
         }
     };

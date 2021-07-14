@@ -14,15 +14,15 @@
     <div class="upload_area">
 
         <div class="drop-zone">
-            <!--
             <p>{% trans "Drag and drop images into this area to upload immediately." %}</p>
-            -->
             <p>{{ help_text }}</p>
             <div class="replace-file-input">
-                <button class="button bicolor icon icon-plus">{% trans "Choose from your computer" %}</button>
-                <input id="{{self.formset.prefix}}-fileupload" type="file" name="files[]"
-                       data-url="{% url 'add_multiple_fix' %}"
-                       multiple>
+                <button id="file_button" class="button bicolor icon icon-plus">{% trans "Choose from your computer" %}</button>
+                <input 
+                    id="{{self.formset.prefix}}-fileupload" type="file" name="files[]"
+                    data-url="{% url 'add_multiple_fix' %}"
+                    multiple
+                >
             </div>
             {% if collections %}
                 <div class="field">
